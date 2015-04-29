@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/get-cached-users', function(req, res) {
   cache.filterCachedUsers(["user1", "user2", "user3", "user4"]).then(function(results) {
-    //console.log(results);
+    console.log(results);
   })
 });
 
