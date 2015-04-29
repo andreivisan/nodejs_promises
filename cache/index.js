@@ -15,26 +15,13 @@ module.exports.filterCachedUsers = function(users) {
 
   return Promise.any(Promise.map(users, function(user) {
 
-      return client.getAsync(user).then(function(result) {
-        if(result) {
-          cachedUsers.push(result);
-        }
-        return cachedUsers;
-      });
+    return client.getAsync(user).then(function(result) {
+      if(result) {
+        cachedUsers.push(result);
+      }
+      return cachedUsers;
+    });
 
   }));
 
-  // promises.push(Promise.map(users, function(user) {
-  //
-  //   return client.getAsync(user).then(function(result) {
-  //     console.log("RESULT: " + result);
-  //     if(result) {
-  //       console.log("*******");
-  //       cachedUsers.push(result);
-  //     }
-  //     return cachedUsers;
-  //   });
-  // }));
-
-  // return Promise.all(promises);
 }
