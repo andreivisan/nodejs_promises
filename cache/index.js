@@ -11,7 +11,6 @@ module.exports.addUsersToCache = function(users) {
 
 module.exports.filterCachedUsers = function(users) {
   var cachedUsers = [];
-  var promises = [];
 
   return Promise.any(Promise.map(users, function(user) {
 
