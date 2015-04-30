@@ -24,3 +24,20 @@ module.exports.filterCachedUsers = function(users) {
   }));
 
 }
+
+module.exports.filterCachedUsersMapReduce = function(users) {
+  var cachedUsers = [];
+
+  return Promise.map(users, function(user) {
+
+    return client.getAsync(user).then(function(result) {
+      if(result) {
+        cachedUsers.push(result);
+      }
+      return cachedUsers;
+    });
+
+  }).reduce(function(cachedUsersResult) {
+    return cachedUsersResult;
+  });
+}
