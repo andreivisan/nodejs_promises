@@ -41,3 +41,16 @@ module.exports.filterCachedUsersMapReduce = function(users) {
     return cachedUsersResult;
   });
 }
+
+module.exports.test = function(users) {
+  var cachedUsers = [];
+
+  return Promise.map(users, function(user) {
+    return client.getAsync(user).then(function(result) {
+      if(result) {
+        return result;
+      }
+    });
+  });
+
+}

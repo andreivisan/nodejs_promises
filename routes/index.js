@@ -12,8 +12,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/get-cached-users', function(req, res) {
-  cache.filterCachedUsersMapReduce(["user1", "user2", "user3", "user4"]).then(function(results) {
-    console.log(results[0]);
+  cache.test(["user1", "user2", "user3", "user4"]).then(function(results) {
+    console.log(results);
     res.render('index', {
       title: 'Express',
       users: results});
