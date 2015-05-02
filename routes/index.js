@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/get-cached-users', function(req, res) {
-  cache.test(["user1", "user2", "user3", "user4"]).then(function(results) {
+  cache.optimizedFilterCachedUsers(["user1", "user2", "user3", "user4"]).then(function(results) {
     console.log(results);
     res.render('index', {
       title: 'Express',

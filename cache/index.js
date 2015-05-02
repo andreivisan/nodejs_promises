@@ -42,7 +42,7 @@ module.exports.filterCachedUsersMapReduce = function(users) {
   });
 }
 
-module.exports.test = function(users) {
+module.exports.optimizedFilterCachedUsers = function(users) {
   var cachedUsers = [];
 
   return Promise.map(users, function(user) {
