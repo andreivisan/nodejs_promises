@@ -43,8 +43,6 @@ module.exports.filterCachedUsersMapReduce = function(users) {
 }
 
 module.exports.optimizedFilterCachedUsers = function(users) {
-  var cachedUsers = [];
-
   return Promise.map(users, function(user) {
     return client.getAsync(user).then(function(result) {
       if(result) {
@@ -52,5 +50,4 @@ module.exports.optimizedFilterCachedUsers = function(users) {
       }
     });
   });
-
 }
